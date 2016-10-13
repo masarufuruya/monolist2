@@ -5,13 +5,19 @@
         <div class="image">
           <div class="img-wrap">
             <% #TODO 商品画像 %>
-            <%= image_tag("no-image.png" , alt: item['itemName']) %>
+            <% unless ["mediumImageUrls"].empty? %>
+              <%= image_tag(item["mediumImageUrls"].first["imageUrl"].gsub('?_ex=128x128', ''), alt: item['itemName']) %>
+            <% else %>
+              <% #asset_path assets/images,assets/stylesheet,assets/javascriptsで該当susrpathをとる %>
+              <% #/assets/application-817776380c2b21405e00e88cbdd215e1.css hashがある時便利 %>
+              <% #実体はaction_viewの中のヘルパー %>
+              <%= image_tag(asset_path('no-image.png'), alt: item['itemName']) %>
+            <% end %>
           </div>
         </div>
         <div class="detail">
           <p class="title">
-            <% #TODO 商品タイトル %>
-            仮タイトル
+            <%= item["itemName"] %>
           </p>
         </div>
         <div class="action clearfix">
