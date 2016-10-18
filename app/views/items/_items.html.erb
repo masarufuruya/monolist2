@@ -4,7 +4,6 @@
       <div class="item-box">
         <div class="image">
           <div class="img-wrap">
-            <% #TODO 商品画像 %>
             <% unless ["mediumImageUrls"].empty? %>
               <%= image_tag(item["mediumImageUrls"].first["imageUrl"].gsub('?_ex=128x128', ''), alt: item['itemName']) %>
             <% else %>
