@@ -1,6 +1,6 @@
 <div class="container">
   <div class="container-inner inner-default clearfix">
-    <% items.each do |item| %>
+    <% items.each_with_index do |item, index| %>
       <div class="item-box">
         <div class="image">
           <div class="img-wrap">
@@ -16,6 +16,14 @@
             <%= item.title %>
           </p>
         </div>
+        <% if params[:controller] == 'rankings' %>
+          <span class="label label-success">順位: <%= index+1 %></span>
+          <% if params[:action] == 'have' %>
+            <span class="label label-info">Have数: <%= counts[item.id] %></span>
+          <% elsif params[:action] == 'want' %>
+            <span class="label label-info">Want数: <%= counts[item.id] %></span>
+          <% end %>
+        <% end %>
         <%= render 'items/action' , item: item if logged_in? %>
       </div>
     <% end %>

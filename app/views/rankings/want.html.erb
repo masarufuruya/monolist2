@@ -3,4 +3,4 @@
         <h2>Wantランキング</h2>
     </div>
 </div>
-<%= render "items/list", items: @want_ranking_items %>
+<%= render partial: "items/list", locals: { items: @want_ranking_items, counts: @want_ranking_counts} %>
