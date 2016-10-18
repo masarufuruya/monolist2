@@ -21,6 +21,12 @@
               <li><%= link_to "ログイン", login_path %></li>
             <% else %>
               <li>
+                <%= link_to "Haveランキング", have_rankings_path %>
+              </li>
+              <li>
+                <%= link_to "Wantランキング", want_rankings_path %>
+              </li>
+              <li>
                 <%= link_to new_item_path do %>
                   <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
                   アイテムを追加
